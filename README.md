@@ -1,4 +1,9 @@
-# sandbox-checkins
+# Sandbox Check-Ins
+[![Build Status](https://travis-ci.org/Mottelz/sandbox-checkins.svg?branch=master)](https://travis-ci.org/Mottelz/sandbox-checkins)
+
+###### This is a simple system to keep trakc of volunteer hours.
+
+## The Answers WTF.
 This is in production, so I'm using this doc as a way to explain what does what for myself and others. 
 
 This project created using [express-generator version 4.16](https://www.npmjs.com/package/express-generator). 
