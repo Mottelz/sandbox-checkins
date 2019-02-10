@@ -18,7 +18,7 @@ while True:  # Run forever
     # If the end character changes, change it here.
     if next_char == ';':
         # Make sure the URL here matches whatever port number the web app is using.
-        url: str = 'http://localhost:3000/checkin' + card_number
+        url: str = 'http://localhost:3000/checkin?cardnumber=' + card_number
         requests.post(url)
         card_number = ''
     # If card numbers are chagned to add soemthing like a dash, update the pattern here.

@@ -1,24 +1,30 @@
-CREATE TABLE Volunteers(
+CREATE TABLE Cards(
     cid unsigned int(12) not null UNIQUE,
+    sid unsigned int(12) not null,
+    primary key(cid),
+    FOREIGN key (sid) REFERENCES Volunteer(sid)
+);
+
+CREATE TABLE Volunteers(
+    sid unsigned int(8) not null UNIQUE,
     fname string not null,
     lname string not null,
     email string,
-    sid unsigned int(8) not null UNIQUE,
-    primary key(id)
+    primary key(sid)
 );
 
 CREATE TABLE Schedules(
-    cid unsigned int(12) not null,
+    sid unsigned int(12) not null,
     day string not null,
     time string not null,
     term string not null,
-    FOREIGN key (cid) REFERENCES Volunteer(cid)
+    FOREIGN key (sid) REFERENCES Volunteer(sid)
 );
 
 CREATE TABLE Swipes(
-    cid unsigned int(12) not null,
+    sid unsigned int(12) not null,
     checkintime sting not null,
-    FOREIGN key (cid) REFERENCES Volunteer(cid)
+    FOREIGN key (sid) REFERENCES Volunteer(sid)
 );
 
 CREATE TABLE Projects(
@@ -30,6 +36,6 @@ CREATE TABLE Projects(
 CREATE TABLE Working(
     pid unsigned int not null,
     cid unsigned int(12) not null,
-    FOREIGN key (cid) REFERENCES Volunteer(cid),
+    FOREIGN key (sid) REFERENCES Volunteer(sid),
     FOREIGN key (pid) REFERENCES Projects(pid)
 );
