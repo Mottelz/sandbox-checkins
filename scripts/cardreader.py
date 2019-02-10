@@ -27,7 +27,7 @@ while True:  # Run forever
     # If the start of the pattern changes, update the character here,
     # but MAKE SURE THE FIRST CHAR IN THE STRING IS STILL A QUESTION MARK
     elif next_char == '?':
-        card_number = next_char
+        card_number = ''
     
     else:
         print("Something went wrong. Please scan your card again.")

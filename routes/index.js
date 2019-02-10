@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
 })
 
 /* The checkin endpoint.
-*  expects */
-router.get('/checkins', async function (req, res, next) {
+*  expects /checkins?card_number=########*/
+router.get('/checkins', async function (req, res) {
   let response_msg;
   if(req.query.card_number) {
     response_msg = await checkins_ctr.checkin(req.query.card_number)
