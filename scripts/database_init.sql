@@ -23,7 +23,7 @@ CREATE TABLE Schedules(
 
 CREATE TABLE Swipes(
     sid unsigned int(12) not null,
-    checkintime sting not null,
+    checkintime string not null,
     FOREIGN key (sid) REFERENCES Volunteer(sid)
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE Projects(
 
 CREATE TABLE Working(
     pid unsigned int not null,
-    cid unsigned int(12) not null,
-    FOREIGN key (sid) REFERENCES Volunteer(sid),
+    sid unsigned int(12) not null,
+    FOREIGN key (sid) REFERENCES Volunteers(sid),
     FOREIGN key (pid) REFERENCES Projects(pid)
 );
