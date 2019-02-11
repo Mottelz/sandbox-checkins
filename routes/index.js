@@ -4,12 +4,22 @@ const checkins_ctr = require('../controllers/checkins_ctr.js')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' })
+  // res.render('index', { title: 'Express' })
+  res.redirect('/signup')
 })
 
+/* The add new volunteer endpoint.*/
+router
+    .get('/signup', function (req, res) {
+  res.render('volunteer_signup', {title: 'Volunteer Sign Up'})
+    })
+    .post('/signup', function (req, res) {
+      res.send(req.body)
+    })
+
 /* The checkin endpoint.
-*  expects /checkins?card_number=########*/
-router.get('/checkins', async function (req, res) {
+*  expects /checkin?card_number=########*/
+router.get('/checkin', async function (req, res) {
   let response_msg;
   if(req.query.card_number) {
     response_msg = await checkins_ctr.checkin(req.query.card_number)

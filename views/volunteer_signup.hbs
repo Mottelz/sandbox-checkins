@@ -1,23 +1,23 @@
-<div class="container">
-    <form>
+<div class="container" style="margin-top: 5%">
+    <form action="/signup" method="post">
         <div class="row">
             <div class="six columns">
                 <label for="fname">First Name</label>
-                <input class="u-full-width" type="text" placeholder="Mottel" id="fname">
+                <input class="u-full-width" type="text" placeholder="Mottel" name="fname">
             </div>
             <div class="six columns">
                 <label for="lname">Last Name</label>
-                <input class="u-full-width" type="text" placeholder="Zirkind" id="lname">
+                <input class="u-full-width" type="text" placeholder="Zirkind" name="lname">
             </div>
         </div>
         <div class="row">
             <div class="six columns">
                 <label for="email">Email</label>
-                <input class="u-full-width" type="email" placeholder="Email" id="email">
+                <input class="u-full-width" type="email" placeholder="Email" name="email">
             </div>
             <div class="six columns">
                 <label for="sid">Student ID#</label>
-                <input class="u-full-width" type="email" placeholder="12345678" id="sid">
+                <input class="u-full-width" type="text" placeholder="12345678" name="sid">
             </div>
         </div>
         <input class="button-primary" type="submit" value="Submit">

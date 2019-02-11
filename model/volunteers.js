@@ -1,4 +1,4 @@
-const db = require('better-sqlite3')('sandbox.db')
+const db = require('better-sqlite3')('model/sandbox.db')
 const moment = require('moment')
 
 //Get the id based on card number
