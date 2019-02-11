@@ -14,19 +14,18 @@ while True:  # Run forever
     # getch() will just read it in.
     next_char: str = getch.getche()
     
-    # The expected pattern is ?123456789;
+    # The expected pattern is ;123456789?
     # If the end character changes, change it here.
-    if next_char == ';':
+    if next_char == '?':
         # Make sure the URL here matches whatever port number the web app is using.
-        url: str = 'http://localhost:3000/checkin?cardnumber=' + card_number
+        url: str = 'http://localhost:3000/checkin?card_number=' + card_number
         requests.post(url)
         card_number = ''
-    # If card numbers are chagned to add soemthing like a dash, update the pattern here.
+    # If card numbers are changed to add something like a dash, update the pattern here.
     elif re.match('[0-9]', next_char):
         card_number += next_char
-    # If the start of the pattern changes, update the character here,
-    # but MAKE SURE THE FIRST CHAR IN THE STRING IS STILL A QUESTION MARK
-    elif next_char == '?':
+    # If the start of the pattern changes, update the character here.
+    elif next_char == ';':
         card_number = ''
     
     else:
