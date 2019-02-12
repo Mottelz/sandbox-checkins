@@ -1,11 +1,20 @@
-const db = require('better-sqlite3')('model/sandbox.db')
-const moment = require('moment')
+const sqlite3 = require('better-sqlite3')
+const db = new sqlite3('model/sandbox.db', { verbose: console.log })
+
+// Add a new volunteer
+exports.addVolunteer = async function(fname, lname, sid, email) {
+    const stmnt = db.prepare('INSERT INTO Volunteers(fname, lname, sid, email) VALUES(?, ?, ?, ?)')
+    const info = await stmnt.run(fname, lname, sid, email)
+    return info
+}
+
 
 //Get the id based on card number
-exports.getVolunteerId = async function(card_number) {
-    let response = await db.prepare("SELECT sid FROM Cards WHERE cid=?").get(card_number)
-    return response.sid
-}
+// exports.getVolunteerId = async function(card_number) {
+//     let stmnt = await db.prepare("SELECT sid FROM Cards WHERE cid=?")
+//         .get(card_number)
+//     return response.sid
+// }
 
 //TODO: Get the schedule for a given volunteer
 exports.getVolunteerSchedule = function(volunteer_id) {
@@ -17,13 +26,3 @@ exports.getFullSchedule = function(semester) {
 
 }
 
-//TODO: Get the most recent checkin for a volunteer
-exports.getLastCheckin = async function(volunteer_id) {
-    let response = await db.prepare()
-}
-
-//Add a checkin for a volunteer
-exports.addCheckin = async function (volunteer_id) {
-    let response = await db.prepare("INSERT INTO Swipes (sid, checkintime) VALUES (?, ?)").run(volunteer_id, moment())
-    return response
-}

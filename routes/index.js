@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const checkins_ctr = require('../controllers/checkins_ctr.js')
+const volunteers_ctr = require('../controllers/volunteers_ctr.js')
 
-/* GET home page. */
+/* The index */
 router.get('/', function(req, res, next) {
   // res.render('index', { title: 'Express' })
   res.redirect('/signup')
@@ -11,11 +12,23 @@ router.get('/', function(req, res, next) {
 /* The add new volunteer endpoint.*/
 router
     .get('/signup', function (req, res) {
-  res.render('volunteer_signup', {title: 'Volunteer Sign Up'})
+      res.render('volunteer_signup', {title: 'Volunteer Sign Up'})
     })
-    .post('/signup', function (req, res) {
-      res.send(req.body)
+    .post('/signup', async function (req, res) {
+      let added = await volunteers_ctr.addVolunteer(req.body)
+
+      if (added) {
+        res.redirect('/card')
+      } else {
+        res.redirect('/signup')
+      }
     })
+
+router.get('/card', function (req, res) {
+  res.render('card_add', {title: 'Add a card'})
+})
+
+
 
 /* The checkin endpoint.
 *  expects /checkin?card_number=########*/
