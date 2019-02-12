@@ -19,7 +19,8 @@ while True:  # Run forever
     if next_char == '?':
         # Make sure the URL here matches whatever port number the web app is using.
         url: str = 'http://localhost:3000/checkin?card_number=' + card_number
-        requests.post(url)
+        response = requests.get(url)
+        print(help(response))
         card_number = ''
     # If card numbers are changed to add something like a dash, update the pattern here.
     elif re.match('[0-9]', next_char):
@@ -28,6 +29,6 @@ while True:  # Run forever
     elif next_char == ';':
         card_number = ''
     
-    else:
-        print("Something went wrong. Please scan your card again.")
+    # else:
+        # print("Something went wrong. Please scan your card again.")
 

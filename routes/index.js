@@ -1,4 +1,5 @@
 const express = require('express')
+const moment = require('moment')
 const router = express.Router()
 const checkins_ctr = require('../controllers/checkins_ctr.js')
 const volunteers_ctr = require('../controllers/volunteers_ctr.js')
@@ -37,7 +38,10 @@ router
       }
     })
 
-
+router.get('/test', function (req, res) {
+  let msg = moment.utc()
+  res.render('index', {title: msg})
+})
 
 /* The checkin endpoint.
 *  expects /checkin?card_number=########*/

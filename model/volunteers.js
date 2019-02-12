@@ -9,12 +9,12 @@ exports.addVolunteer = async function(fname, lname, sid, email) {
 }
 
 
-//Get the id based on card number
-// exports.getVolunteerId = async function(card_number) {
-//     let stmnt = await db.prepare("SELECT sid FROM Cards WHERE cid=?")
-//         .get(card_number)
-//     return response.sid
-// }
+// Get the id based on card number
+exports.getVolunteerId = async function(card_number) {
+    let stmnt = await db.prepare("SELECT sid FROM Cards WHERE cid=?")
+    let response = stmnt.get(card_number)
+    return response.sid
+}
 
 //TODO: Get the schedule for a given volunteer
 exports.getVolunteerSchedule = function(volunteer_id) {
