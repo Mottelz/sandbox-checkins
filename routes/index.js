@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const checkins_ctr = require('../controllers/checkins_ctr.js')
 const volunteers_ctr = require('../controllers/volunteers_ctr.js')
+const cards_ctr = require('../controllers/cards_ctr.js')
 
 /* The index */
 router.get('/', function(req, res, next) {
@@ -24,9 +25,17 @@ router
       }
     })
 
-router.get('/card', function (req, res) {
-  res.render('card_add', {title: 'Add a card'})
-})
+router
+    .get('/card', function (req, res) {
+      res.render('card_add', {title: 'Add a card'})
+    })
+    .post('/card', async function (req, res) {
+      let added = await cards_ctr.addCard(req.body)
+
+      if(added){
+        res.render('index', {title: "You've been added"})
+      }
+    })
 
 
 

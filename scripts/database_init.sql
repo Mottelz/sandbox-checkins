@@ -2,7 +2,7 @@ CREATE TABLE Cards(
     cid unsigned int(12) not null UNIQUE,
     sid unsigned int(12) not null,
     primary key(cid),
-    FOREIGN key (sid) REFERENCES Volunteer(sid)
+    FOREIGN key (sid) REFERENCES Volunteers(sid)
 );
 
 CREATE TABLE Volunteers(
@@ -18,13 +18,13 @@ CREATE TABLE Schedules(
     day string not null,
     time string not null,
     term string not null,
-    FOREIGN key (sid) REFERENCES Volunteer(sid)
+    FOREIGN key (sid) REFERENCES Volunteers(sid)
 );
 
 CREATE TABLE Checkins(
     sid unsigned int(12) not null,
     checkintime string not null,
-    FOREIGN key (sid) REFERENCES Volunteer(sid)
+    FOREIGN key (sid) REFERENCES Volunteers(sid)
 );
 
 CREATE TABLE Projects(

@@ -3,8 +3,8 @@ const db = new sqlite3('model/sandbox.db', { verbose: console.log })
 
 // Add a new volunteer
 exports.addVolunteer = async function(fname, lname, sid, email) {
-    const stmnt = db.prepare('INSERT INTO Volunteers(fname, lname, sid, email) VALUES(?, ?, ?, ?)')
-    const info = await stmnt.run(fname, lname, sid, email)
+    let stmnt = db.prepare('INSERT INTO Volunteers(fname, lname, sid, email) VALUES(?, ?, ?, ?)')
+    let info = await stmnt.run(fname, lname, sid, email)
     return info
 }
 
