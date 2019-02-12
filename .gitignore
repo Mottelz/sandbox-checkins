@@ -1,5 +1,5 @@
 # The database
-model/sandbox.db
+*.db
 
 # Logs
 logs
