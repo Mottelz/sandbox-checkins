@@ -15,3 +15,7 @@ The **scripts** folder is where to store misc bits of code needed for this proje
 - *database_init.sql*: SQLite3 script that sets up the database. 
 
 I have also setup automated testing using Mocha + Chai and TravisCI. Mocha and Chai are the unit testing packages and TravisCI automatically tests every new version uploaded to Master. It's the reason for that pretty badge at the top of this doc.
+
+### Glossary
+
+*Checkin:* This refers to when a volunteer swipes their card to checkin. 

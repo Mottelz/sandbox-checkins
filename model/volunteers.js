@@ -18,8 +18,8 @@ exports.getFullSchedule = function(semester) {
 }
 
 //TODO: Get the most recent checkin for a volunteer
-exports.getLastCheckin = function(volunteer_id) {
-
+exports.getLastCheckin = async function(volunteer_id) {
+    let response = await db.prepare()
 }
 
 //Add a checkin for a volunteer

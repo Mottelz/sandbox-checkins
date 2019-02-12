@@ -21,7 +21,7 @@ CREATE TABLE Schedules(
     FOREIGN key (sid) REFERENCES Volunteer(sid)
 );
 
-CREATE TABLE Swipes(
+CREATE TABLE Checkins(
     sid unsigned int(12) not null,
     checkintime string not null,
     FOREIGN key (sid) REFERENCES Volunteer(sid)
