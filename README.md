@@ -18,7 +18,7 @@ The **scripts** folder is where to store misc bits of code needed for this proje
 I have also setup automated testing using Mocha + Chai and TravisCI. Mocha and Chai are the unit testing packages and TravisCI automatically tests every new version uploaded to Master. It's the reason for that pretty badge at the top of this doc.
 
 ## Technical Details
-All time is stored using the Unix ms timestamp and based on the utc timezone. If you're every using a format string to tell MomentJS use a lowercase x for this timestamp. 
+All time is stored using the Unix ms timestamp and based on the utc timezone. If you're every using a format string to tell MomentJS the format use a lowercase x for this timestamp. 
 
 
 ## Glossary
