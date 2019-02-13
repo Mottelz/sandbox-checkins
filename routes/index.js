@@ -39,7 +39,7 @@ router
     })
 
 router.get('/test', function (req, res) {
-  let msg = moment.utc()
+  let msg = moment.utc().format("x")
   res.render('index', {title: msg})
 })
 

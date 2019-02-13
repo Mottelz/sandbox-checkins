@@ -20,7 +20,7 @@ while True:  # Run forever
         # Make sure the URL here matches whatever port number the web app is using.
         url: str = 'http://localhost:3000/checkin?card_number=' + card_number
         response = requests.get(url)
-        print(help(response))
+        print(response.text)
         card_number = ''
     # If card numbers are changed to add something like a dash, update the pattern here.
     elif re.match('[0-9]', next_char):
