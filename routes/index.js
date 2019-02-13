@@ -26,6 +26,7 @@ router
       }
     })
 
+/* The form to add a student id card. */
 router
     .get('/card', function (req, res) {
       res.render('card_add', {title: 'Add a card'})
@@ -38,11 +39,6 @@ router
       }
     })
 
-router.get('/test', function (req, res) {
-  let msg = moment.utc().format("x")
-  res.render('index', {title: msg})
-})
-
 /* The checkin endpoint.
 *  expects /checkin?card_number=########*/
 router.get('/checkin', async function (req, res) {
@@ -53,6 +49,12 @@ router.get('/checkin', async function (req, res) {
     response_msg = "Please send a valid card_number."
   }
   res.send(response_msg)
+})
+
+// This is just used to test things.
+router.get('/test', function (req, res) {
+    // let msg = moment.utc().format("x")
+    res.render('schedule', {title: "Schedule"})
 })
 
 module.exports = router

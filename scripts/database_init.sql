@@ -16,7 +16,8 @@ CREATE TABLE Volunteers(
 CREATE TABLE Schedules(
     sid unsigned int(12) not null,
     day string not null,
-    time string not null,
+    intime int(2) not null,
+    outtime int(2) not null,
     term string not null,
     FOREIGN key (sid) REFERENCES Volunteers(sid)
 );
