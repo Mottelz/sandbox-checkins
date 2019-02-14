@@ -78,7 +78,10 @@ router
     })
 
 /* The actual bloody schedule */
-router.get('/schedule', function (req, res) {
-    res.render('schedule', {title:"Schedule: Winter 2019"})
+router.get('/schedule', async function (req, res) {
+    let term = (req.term == null) ? "Winter 2019" : req.term
+    let data = await schedules_ctr.getSchedule(term)
+    res.render('schedule', {title:"Schedule: " + term, caldata: data})
+    console.log(data)
 })
 module.exports = router
