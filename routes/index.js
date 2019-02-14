@@ -11,9 +11,9 @@ const schedules_ctr = require('../controllers/schedule_ctr')
 //TODO: ADD ERROR MESSAGES!!!
 
 /* The index */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   // res.render('index', { title: 'Express' })
-  res.redirect('/test')
+  res.redirect('/schedule')
 })
 
 // This is just used to test things.
@@ -82,6 +82,5 @@ router.get('/schedule', async function (req, res) {
     let term = (req.term == null) ? "Winter 2019" : req.term
     let data = await schedules_ctr.getSchedule(term)
     res.render('schedule', {title:"Schedule: " + term, caldata: data})
-    console.log(data)
 })
 module.exports = router
