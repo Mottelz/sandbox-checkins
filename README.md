@@ -23,3 +23,4 @@ All time is stored using the Unix ms timestamp and based on the utc timezone. If
 
 ## Glossary
 *Checkin:* This refers to when a volunteer swipes their card to checkin. 
+*Schedule:* Used to mean both the page that shows everyone's hours for the term and each record that makes up that schedule. It's confusing. I know. I apologize.  

@@ -19,6 +19,7 @@ CREATE TABLE Schedules(
     intime int(2) not null,
     outtime int(2) not null,
     term string not null,
+    PRIMARY KEY (sid, term),
     FOREIGN key (sid) REFERENCES Volunteers(sid)
 );
 
