@@ -16,13 +16,4 @@ exports.getVolunteerId = async function(card_number) {
     return response.sid
 }
 
-//TODO: Get the schedule for a given volunteer
-exports.getVolunteerSchedule = function(volunteer_id) {
-
-}
-
-//TODO: Get the schedule for all the volunteers for a given semester
-exports.getFullSchedule = function(semester) {
-
-}
 
