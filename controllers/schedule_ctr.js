@@ -46,10 +46,5 @@ exports.getSchedule = async function (term) {
         "18x": caldata["18"]
     }
 
-
     return result
 }
-
-// For volunteer in volunteers:
-// while current < end:
-// vol.day[current] += vol.name
