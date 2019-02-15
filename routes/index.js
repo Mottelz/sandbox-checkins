@@ -12,8 +12,7 @@ const schedules_ctr = require('../controllers/schedule_ctr')
 
 /* The index */
 router.get('/', function(req, res) {
-  // res.render('index', { title: 'Express' })
-  res.redirect('/schedule')
+    res.redirect('/schedule')
 })
 
 // This is just used to test things.
@@ -46,7 +45,9 @@ router
       let added = await cards_ctr.addCard(req.body)
 
       if(added){
-        res.render('index', {title: "You've been added"})
+        res.redirect('/hours')
+      } else {
+          res.redirect('/card')
       }
     })
 
@@ -79,7 +80,7 @@ router
 
 /* The actual bloody schedule */
 router.get('/schedule', async function (req, res) {
-    let term = (req.term == null) ? "Winter 2019" : req.term
+    let term = await (req.term == null) ? schedules_ctr.getTerm() : req.term // This is here so we can take in old terms if need be.
     let data = await schedules_ctr.getSchedule(term)
     res.render('schedule', {title:"Schedule: " + term, caldata: data})
 })
