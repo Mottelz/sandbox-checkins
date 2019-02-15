@@ -12,19 +12,14 @@ const schedules_ctr = require('../controllers/schedule_ctr')
 
 /* The index */
 router.get('/', function(req, res) {
-    res.redirect('/schedule')
-})
-
-// This is just used to test things.
-router.get('/test', function (req, res) {
-    // let msg = moment.utc().format("x")
-    res.render('schedule_add', {title: "Add to Schedule"})
+    // res.render('index', {title: "Welcome", message: "At least this works."})
+    res.redirect('/signup')
 })
 
 /* The add new volunteer endpoint.*/
 router
     .get('/signup', function (req, res) {
-      res.render('volunteer_add', {title: 'Volunteer Sign Up'})
+      res.render('add_volunteer', {title: 'Volunteer Sign Up'})
     })
     .post('/signup', async function (req, res) {
       let added = await volunteers_ctr.addVolunteer(req.body)
@@ -39,13 +34,13 @@ router
 /* The form to add a student id card. */
 router
     .get('/card', function (req, res) {
-      res.render('card_add', {title: 'Add a card'})
+      res.render('add_card', {title: 'Add a card'})
     })
     .post('/card', async function (req, res) {
       let added = await cards_ctr.addCard(req.body)
 
       if(added){
-        res.redirect('/hours')
+          res.redirect('/hours')
       } else {
           res.redirect('/card')
       }
@@ -67,7 +62,7 @@ router
 /* The form to add to the schedule. */
 router
     .get('/hours', function (req, res) {
-        res.render('schedule_add', {title: "Add to Schedule"})
+        res.render('add_schedule', {title: "Add to Schedule"})
     })
     .post('/hours', async function (req, res) {
         let result = await schedules_ctr.addSchedule(req.body)

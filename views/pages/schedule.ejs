@@ -1,0 +1,37 @@
+<% include ../partials/header.ejs%>
+<div class="container" style="margin-top: 5%">
+    <table class="u-full-width zebra-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Sunday</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(let hour=10; hour < 19; hour++) { %>
+            <tr>
+                <th><%=hour%>:00</th>
+                <td><%= caldata[hour].sun %></td>
+                <td><%= caldata[hour].mon %></td>
+                <td><%= caldata[hour].tue %></td>
+                <td><%= caldata[hour].wed %></td>
+                <td><%= caldata[hour].thu %></td>
+                <td><%= caldata[hour].fri %></td>
+                <td><%= caldata[hour].sat %></td>
+            </tr>
+        <%}%>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<% include ../partials/footer.ejs%>
