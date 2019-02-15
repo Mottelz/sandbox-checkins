@@ -6,19 +6,19 @@ import requests  # Used to make the HTTP request
 import getch  # Used to read in chars as they appear
 import re  # Used for some very basic pattern matching
 
-card_number: str  # The card number we want to read
+card_number = '' # The card number we want to read
 
 while True:  # Run forever
     
     # getche() will also print it to screen.
     # getch() will just read it in.
-    next_char: str = getch.getche()
+    next_char = getch.getche()
     
     # The expected pattern is ;123456789?
     # If the end character changes, change it here.
     if next_char == '?':
         # Make sure the URL here matches whatever port number the web app is using.
-        url: str = 'http://localhost:3000/checkin?card_number=' + card_number
+        url = 'http://localhost:3000/checkin?card_number=' + card_number
         response = requests.get(url)
         print(response.text)
         card_number = ''
