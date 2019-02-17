@@ -32,6 +32,7 @@ CREATE TABLE Checkins(
 CREATE TABLE Projects(
     pid unsigned int not null UNIQUE,
     description string not null,
+    title string not null,
     primary key(pid)
 );
 

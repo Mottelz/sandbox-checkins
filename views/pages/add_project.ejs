@@ -1,0 +1,16 @@
+<% include ../partials/header.ejs %>
+<div class="container" style="margin-top: 5%">
+    <h3><%=title%></h3>
+    <form action="/project" method="post">
+        <div class="row">
+            <div class="six columns">
+                <label for="title">Project Title</label>
+                <input class="u-full-width" type="text" placeholder="Example: Volunteer Checkin, Fix Roomba, etc." name="title">
+            </div>
+        </div>
+        <label for="description">Project Description</label>
+        <textarea class="u-full-width" placeholder="A system that volunteers can use to check in and track the projects they are working up." name="description"></textarea>
+        <input class="button-primary" type="submit" value="Submit">
+    </form>
+</div>
+<% include ../partials/footer.ejs %>
