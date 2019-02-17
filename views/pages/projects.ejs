@@ -1,0 +1,25 @@
+<% include ../partials/header.ejs%>
+<div class="container" style="margin-top: 5%">
+    <table class="u-full-width zebra-striped">
+        <thead>
+        <tr>
+            <th>pid</th>
+            <th>Project Title</th>
+            <th>Description</th>
+            <th>Volunteers</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(let i=0; i < projects.length; i++) { %>
+        <tr>
+            <th><%=projects[i].pid%></th>
+            <td><%=projects[i].title%></td>
+            <td><%=projects[i].description%></td>
+            <td><%=projects[i].volunteers%></td>
+        </tr>
+        <%}%>
+        </tbody>
+    </table>
+    <a class="button button-primary" href="/schedule" style="float: right">Schedule</a>
+</div>
+<% include ../partials/footer.ejs%>

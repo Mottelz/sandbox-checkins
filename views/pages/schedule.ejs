@@ -17,21 +17,17 @@
         <% for(let hour=10; hour < 19; hour++) { %>
             <tr>
                 <th><%=hour%>:00</th>
-                <td><%= caldata[hour].sun %></td>
-                <td><%= caldata[hour].mon %></td>
-                <td><%= caldata[hour].tue %></td>
-                <td><%= caldata[hour].wed %></td>
-                <td><%= caldata[hour].thu %></td>
-                <td><%= caldata[hour].fri %></td>
-                <td><%= caldata[hour].sat %></td>
+                <td><%=caldata[hour].sun %></td>
+                <td><%=caldata[hour].mon %></td>
+                <td><%=caldata[hour].tue %></td>
+                <td><%=caldata[hour].wed %></td>
+                <td><%=caldata[hour].thu %></td>
+                <td><%=caldata[hour].fri %></td>
+                <td><%=caldata[hour].sat %></td>
             </tr>
         <%}%>
         </tbody>
     </table>
+    <a class="button button-primary" href="/projects" style="float: right">Projects</a>
 </div>
-
-
-
-
-
 <% include ../partials/footer.ejs%>
