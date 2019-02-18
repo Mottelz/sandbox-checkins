@@ -4,11 +4,11 @@
     <form action="/join_project" method="post">
         <div class="row">
             <label for="sid">Student ID</label>
-            <input class="u-full-width" type="text" placeholder="12345678" name="sid">
+            <input class="u-full-width" type="text" placeholder="12345678" name="sid" autocomplete="off" required autofocus>
         </div>
         <div class="u-full-width">
             <label for="pid">Project</label>
-            <select class="u-full-width" name="pid">
+            <select class="u-full-width" name="pid" required>
                 <option selected="selected" disabled>Choose a project</option>
                 <% for(let i = 0; i < projects.length; i++){%>
                     <option value="<%=projects[i].pid%>"><%=projects[i].title%>: <%=projects[i].description%></option>

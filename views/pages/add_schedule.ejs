@@ -4,16 +4,16 @@
     <form action="/hours" method="post">
         <div class="row">
             <label for="sid">Student ID#</label>
-            <input class="u-full-width" type="text" placeholder="12345678" name="sid">
+            <input class="u-full-width" type="text" placeholder="12345678" name="sid" autocomplete="off" autofocus required>
         </div>
         <div class="row">
             <div class="six columns">
                 <label for="year">Year</label>
-                <input class="u-full-width" type="number" placeholder="2019" name="year" min="2016" maxlength="4">
+                <input class="u-full-width" type="number" name="year" min="2016" maxlength="4" autocomplete="off" required>
             </div>
             <div class="six columns">
                 <label for="term">Term</label>
-                <select class="u-full-width" name="term">
+                <select class="u-full-width" name="term" required>
                     <option selected="selected" disabled>Select the term</option>
                     <option value="Winter">Winter</option>
                     <option value="Summer">Summer</option>
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="four columns">
                 <label for="day">Day</label>
-                <select class="u-full-width" name="day">
+                <select class="u-full-width" name="day" required>
                     <option selected="selected" disabled>On which day will you grace us?</option>
                     <option value="mon">Monday</option>
                     <option value="tue">Tuesday</option>
@@ -36,7 +36,7 @@
             </div>
             <div class="four columns">
                 <label for="timein">Time In</label>
-                <select class="u-full-width" name="intime">
+                <select class="u-full-width" name="intime" required>
                     <option selected="selected" disabled>What time can you show up?</option>
                     <option value="10">10:00 am</option>
                     <option value="11">11:00 am</option>
@@ -51,7 +51,7 @@
             </div>
             <div class="four columns">
                 <label for="timeout">Time Out</label>
-                <select class="u-full-width" name="outtime">
+                <select class="u-full-width" name="outtime" required>
                     <option selected="selected" disabled>What time will you leave us?</option>
                     <option value="10">10:00 am</option>
                     <option value="11">11:00 am</option>
