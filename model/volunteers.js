@@ -10,7 +10,13 @@ exports.addVolunteer = async function(fname, lname, sid, email) {
 // Get the id based on card number
 exports.getVolunteerId = async function(card_number) {
     let stmnt = db.prepare("SELECT sid FROM Cards WHERE cid=?")
-    return await stmnt.get(card_number).sid
+    let result = ''
+    try {
+        result = await stmnt.get(card_number).sid
+    } catch (e) {
+        return e.message
+    }
+    return result
 }
 
 // Get the names of volunteers working on projects

@@ -13,7 +13,7 @@ const projects_ctr = require('../controllers/projects_ctr.js')
 /* The index */
 router.get('/', function(req, res) {
     // res.render('index', {title: "Test", message: "Blah"})
-    res.redirect('/card')
+    res.redirect('/schedule')
 })
 
 /* The add new volunteer endpoint.*/
@@ -58,6 +58,16 @@ router
       }
       res.send(response_msg)
     })
+    .post('/checkin', async function (req, res) {
+        let response_msg;
+        if(req.body.card_number) {
+            response_msg = await checkins_ctr.checkin(req.body.card_number)
+        } else {
+            response_msg = "Please send a valid card_number."
+        }
+        res.redirect('/schedule?msg=' + response_msg)
+    })
+
 
 /* The form to add to the schedule. */
 router
@@ -77,7 +87,8 @@ router
 router.get('/schedule', async function (req, res) {
     let term = await (req.term == null) ? schedules_ctr.getTerm() : req.term // This is here so we can take in old terms if need be.
     let data = await schedules_ctr.getSchedule(term)
-    res.render('schedule', {title:"Schedule: " + term, caldata: data})
+    let message = (req.query.msg != null) ?  req.query.msg : ''
+    res.render('schedule', {title:"Schedule: " + term, caldata: data, popUp: message})
 })
 
 /* The form to create a project. */
