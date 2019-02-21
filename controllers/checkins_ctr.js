@@ -7,18 +7,22 @@ const checkins = require('../model/checkins.js')
      let result_msg
      //get volunteer's id
      let volunteer_id = await volunteers.getVolunteerId(card_number)
+     //if volunteer doesn't exist...
+     if (volunteer_id.length != 8) {
+         return 'You are not in the system yet. Please signup.'
+     }
      //get the most recent checkin
      let most_recent_checkin = await checkins.getLastCheckin(volunteer_id)
      console.log(most_recent_checkin)
      //verify that a new checkin is allowed
      if (most_recent_checkin == null || moment(most_recent_checkin.checkintime, "x").isBefore(moment().utc().subtract(1,'hours'))) {
          //check the volunteer in
-         await checkins.addCheckin(volunteer_id)
-         result_msg = "Checkin Successful!"
+         result_msg = await checkins.addCheckin(volunteer_id)
+         if (result_msg == volunteer_id) {
+             result_msg = volunteer_id + " has been checked in."
+         }
      } else {
-         console.log("false")
-         result_msg = "You can't checkin twice in one hour!"
+         result_msg = "You cannot checkin twice in one hour."
      }
-     console.log(result_msg)
      return result_msg
 }
