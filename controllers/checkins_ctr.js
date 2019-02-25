@@ -5,10 +5,11 @@ const checkins = require('../model/checkins.js')
 /* The function that checks people in. All of the related rules will go here.*/
  exports.checkin = async function (card_number) {
      let result_msg
+     console.log(1)
      //get volunteer's id
      let volunteer_id = await volunteers.getVolunteerId(card_number)
      //if volunteer doesn't exist...
-     if (volunteer_id.length != 8) {
+     if (volunteer_id.toString().length !== 8) {
          return 'You are not in the system yet. Please signup.'
      }
      //get the most recent checkin
