@@ -5,7 +5,6 @@ const checkins = require('../model/checkins.js')
 /* The function that checks people in. All of the related rules will go here.*/
  exports.checkin = async function (card_number) {
      let result_msg
-     console.log(1)
      //get volunteer's id
      let volunteer_id = await volunteers.getVolunteerId(card_number)
      //if volunteer doesn't exist...
